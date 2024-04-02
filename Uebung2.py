@@ -36,8 +36,16 @@ class Vector3:
     
     def __rmul__(self,other):
         return Vector3(self.x * other, self.y * other, self.z * other)
-    
 
+    def dot(self,other):
+        return (self.x * other.x + self.y * other.y + self.z * other.z)
+    
+    def cross(self,other):
+        return Vector3(self.y*other.z -self.z*other.y,self.z*other.x -self.x*other.z,self.x*other.y - self.y*other.x)
+
+    def norm(self):
+        Betrag = (self.x**2 + self.y**2 + self.z**2)**0.5
+        return Vector3(self.x*(1/Betrag),self.y*(1/Betrag),self.z*(1/Betrag))
 #----------------------------------------------------------------
 
 a = Vector3(3,4,2)
@@ -47,7 +55,8 @@ Diverenz = a-b
 Produkt = a*b
 Produkt2 =  2 * a
 Produkt3 = a * 2
-
+d = a.dot(b)
+e = a.cross(b)
 
 print(str(a))
 print(a.len())
@@ -56,3 +65,6 @@ print(Diverenz)
 print(Produkt)
 print(Produkt2)
 print(Produkt3)
+print(d)
+print(e)
+print(a.norm())
