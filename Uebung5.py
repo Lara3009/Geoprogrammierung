@@ -30,7 +30,11 @@ class Fenster(QMainWindow):
         self.land = QComboBox()
         self.land.addItems(["Schweiz", "Deutschland", "Österreich", "andere"])
 
-        self.savek = QPushButton("Save")
+        self.karte = QPushButton("Auf Karte zeigen")
+        self.laden = QPushButton("Laden")
+        self.savek = QPushButton("Speichern")
+        
+        
 
         ## Layout füllen
         layout.addRow("Vorname:", self.vorname)
@@ -40,6 +44,8 @@ class Fenster(QMainWindow):
         layout.addRow("PLZ:", self.plz)
         layout.addRow("Ortschaft:", self.ort)
         layout.addRow("Land:", self.land)
+        layout.addRow(self.karte)
+        layout.addRow(self.laden)
         layout.addRow(self.savek)
 
 
@@ -66,10 +72,8 @@ class Fenster(QMainWindow):
 
     def speicher(self):
         export = f"{self.vorname.text()},{self.nachname.text()},{self.bday.text()},{self.adr.text()},{self.plz.text()},{self.ort.text()},{self.land.currentText()}"
-
-        f = open("output.txt", "w")
-        f.write(export)
-        f.close()
+        filename,typ = QFileDialog.getSaveFileName(self,"Datei speichern","output","Text (*.txt)")
+        print(filename)
 
 def main():
     app = QApplication(sys.argv)  
