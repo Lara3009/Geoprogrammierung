@@ -11,6 +11,7 @@ class Fenster(QMainWindow):
         self.vnLine = QLineEdit()
         self.nLine = QLineEdit()
         self.Geb = QDateEdit()
+        self.Geb.setDisplayFormat("dd/MM/yyyy")
         self.AdresseL = QLineEdit()
         self.PLZLine = QLineEdit()
         self.OLine = QLineEdit()

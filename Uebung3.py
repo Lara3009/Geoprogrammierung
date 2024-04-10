@@ -29,7 +29,7 @@ class Dreieck(Figur):
         return 
     
     def __str__(self):
-        return self.name
+        return self.name 
 
 class Rechteck(Figur):
     def __init__(self,Punkt4,Punkt5):
